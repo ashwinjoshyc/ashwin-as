@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <script type='text/javascript'>
+        function GetMap() {
+            var map = new Microsoft.Maps.Map('#myMap', {
+                credentials: 'AsKqOqSgrs63pxGTR-N-jI-hk0lLlFFb0KvNqzwj49YiaMl8KqIlr6yAYnauwQGd'
+            });
+    
+            //Request the user's location
+            navigator.geolocation.getCurrentPosition(function (position) {
+                var loc = new Microsoft.Maps.Location(
+                    position.coords.latitude,
+                    position.coords.longitude);
+    
+                //Add a pushpin at the user's location.
+                var pin = new Microsoft.Maps.Pushpin(loc);
+                map.entities.push(pin);
+    
+                //Center the map on the user's location.
+                map.setView({ center: loc, zoom: 15 });
+            });
+        }
+        </script>
+        <script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?callback=GetMap' async defer></script>
+        <style>
+            body{
+                background-color: rgb(116, 43, 226);
+                color: rgb(20, 48, 211);
+            }
+            
+        </style>
+        
+</head>
+<style>
+   
+.svgdiv{
+    background: #aae3ed;
+    text-align: center;
+}
+.mapspan{
+    height: fit-content;
+}
+.maindiv{
+text-align: center;
+}
+.divsvg{
+    text-align: center;
+}
+.heading{
+    background: rgba(255, 255, 255, 0.799);
+    border-radius: 50px;
+}
+.footer {
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  bottom: 0;
+  width: 100%;
+}
+</style>
+<body >
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+        <div class="container">
+            <a class="navbar-brand"  href="#">
+                <img style="border-radius: 100px;" src="C:\Users\sidha\OneDrive\Pictures\Winkel_triple_projection_SW.jpg"alt="" width="30" height="24">
+              </a>
+          <a class="navbar-brand" href="#">Navbar</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="#">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">Link</a>
+              </li>
+              <li class="nav-item pt-2">
+                <i class="bi bi-geo-alt-fill">Location</i>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+      <div class="container-fluid  maindiv">
+        <div class="container mt-5">
+                <h1 class="heading">Canvas</h1>
+                <div id="map"></div>
+                <canvas id="custom-canvas" width="80" height="80"></canvas>
+              </div>
+            
+              <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places"></script>
+              <script>
+                // Your geolocation and map code here
+                
+                // Example Canvas drawing
+                const customCanvas = document.getElementById("custom-canvas");
+                const ctx = customCanvas.getContext("2d");
+                
+                // Draw a rectangle
+                ctx.fillStyle = "red";
+                ctx.fillRect(10, 10, 80, 80);
+              </script>
+      <div class="container">
+        <div class="row pb-5">
+          
+          
+          <div class="col" >
+            <h1 class="heading">Bing Map</h1>
+            <div id="myMap" width="290" height="300"></div>
+          </div>
+          <div class="col">
+            <h1 class="heading">Google Map</h1>
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31434.12396642051!2d76.76229950580549!3d9.994914329165464!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b07c0267eefecef%3A0x23a2e79a4c63a490!2zTWFyIFNsZWV2YSBUb3duIENodXJjaCAo4LSJ4LSj4LWN4LSj4LWA4LS24LWLIOC0quC0s-C1jeC0s-C0vyB8IFVuZWVzaG8gUGFsbGkpLCBWYW5uYXBwdXJhbQ!5e0!3m2!1sen!2sin!4v1691746878362!5m2!1sen!2sin" width="290" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+        </div>
+        
+      </div>
+      </div>
+      <footer class="footer mt-5">
+        <p>&copy; 2023 Your Website. All rights reserved.</p>
+      </footer>
+      
+</body>
+</html>
